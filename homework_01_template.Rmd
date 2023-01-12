@@ -168,7 +168,7 @@ Next, we will include the influence of the `cut` variable breaking up the graphi
 ### your code here
 library(ggplot2)
 x = diamonds["color"]
-y = "price"
+y = diamonds["price"]
 ggplot(diamonds, aes(x = color, y = price)) + geom_boxplot() + facet_wrap(~cut)
 ```
 
@@ -182,6 +182,10 @@ In addition to the `facet_wrap()` function, we can create subplots with the `fac
 
 ```{r, solution_02d}
 ### your code here
+library(ggplot2)
+x = diamonds["color"]
+y = diamonds["price"]
+ggplot(diamonds, aes(x = color, y = price)) + geom_boxplot() + facet_wrap(~cut)
 ```
 
 ### 2e)
