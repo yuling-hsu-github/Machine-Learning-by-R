@@ -200,6 +200,7 @@ The resulting figure in Problem 2d) includes 3 out of the 4 C's. The remaining v
 
 ```{r, solution_02e}
 ### your code here
+
 ```
 
 ### 2f)
