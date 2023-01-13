@@ -301,6 +301,7 @@ ggplot(mpg, aes(x = displ, y = hwy)) + geom_point() + geom_smooth(method = lm, f
 
 ```{r, solution_03e}
 ### your code here
+###aesthetic all edit in()
 library(ggplot2)
 ggplot(data = mpg,aes(x = displ, y = hwy)) + geom_point() +
   geom_smooth(mapping = aes(x = displ, y = hwy, colour = drv), formula = y~x, method = lm)
@@ -316,6 +317,10 @@ When you map a discrete variable in `geom_smooth()`, `ggplot2` first groups the 
 
 ```{r, solution_03f}
 ### your code here
+library(ggplot2)
+ggplot(data = mpg,aes(x = displ, y = hwy)) + geom_point() +
+  geom_smooth(mapping = aes(x = displ, y = hwy, group = drv), formula = y ~ x, method = lm)
+###what is don't map any variable to the color aesthetic?
 ```
 
 ## Problem 04
@@ -329,7 +334,9 @@ As useful as it is to include trend lines on figures, we do not have access to s
 #### SOLUTION
 
 ```{r, solution_04a, eval=FALSE}
-mod1 <- 
+library(ggplot2)
+mod1 <- lm(hwy ~ displ, mpg)
+mod1
 ```
 
 ### 4b)
@@ -342,6 +349,8 @@ We could use the `summary()` function to inspect the results, but instead I want
 
 ```{r, solution_04b}
 ### your code here
+summary(mpg) ###inspect information of dataset
+coefplot::coefplot(mod1)
 ```
 
 ### 4c)
@@ -353,7 +362,8 @@ Let's now fit a slightly more complex model which accounts for the influence of 
 #### SOLUTION
 
 ```{r, solution_04c, eval=FALSE}
-mod2 <- 
+mod2 <- lm(hwy ~ displ + drv, data = mpg)
+mod2
 ```
 
 ### 4d)
@@ -364,6 +374,7 @@ mod2 <-
 
 ```{r, solution_04d}
 ### your code here
+coefplot::coefplot(mod2)
 ```
 
 ## Problem 05
@@ -380,7 +391,7 @@ We will denote vectors as bold face font lower case letters and matrix with bold
 #### SOLUTION
 
 $$ 
-here
+\mathbf{A} \mathbf{x} = \mathbf{b}
 $$
 
 ### 5b)
