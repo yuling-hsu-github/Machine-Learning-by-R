@@ -150,7 +150,7 @@ Let's start by visualizing the relationship between `price` and `color`.
 ### your code here
 library(ggplot2)
 x = diamonds["color"]
-y = "price"
+y = diamonds["price"]
 ggplot(diamonds, aes(x = color, y = price)) + geom_boxplot()
 ```
 
@@ -239,6 +239,8 @@ You will use the `mpg` data set just like in Ch. 3 of R4DS. You will first visua
 
 ```{r, solution_03a}
 ### your code here
+library(ggplot2)
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point()
 ```
 
 ### 3b)
@@ -253,6 +255,8 @@ As already stated, `geom_smooth()` allows a trend to be added as a layer to the 
 
 ```{r, solution_03b}
 ### your code here
+library(ggplot2)
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point() + geom_smooth()
 ```
 
 ### 3c)
@@ -265,6 +269,8 @@ Let's now visualize a linear trend instead of the default non-linear smoother.
 
 ```{r, solution_03c}
 ### your code here
+library(ggplot2)
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point() + geom_smooth(method = "lm")
 ```
 
 ### 3d)
@@ -281,6 +287,8 @@ It's important to note that when specifying the `formula` argument to `geom_smoo
 
 ```{r, solution_03d}
 ### your code here
+library(ggplot2)
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point() + geom_smooth(method = lm, formula = y ~ x )
 ```
 
 ### 3e)
@@ -293,6 +301,9 @@ It's important to note that when specifying the `formula` argument to `geom_smoo
 
 ```{r, solution_03e}
 ### your code here
+library(ggplot2)
+ggplot(data = mpg,aes(x = displ, y = hwy)) + geom_point() +
+  geom_smooth(mapping = aes(x = displ, y = hwy, colour = drv), formula = y~x, method = lm)
 ```
 
 ### 3f)
