@@ -349,6 +349,7 @@ We could use the `summary()` function to inspect the results, but instead I want
 
 ```{r, solution_04b}
 ### your code here
+mod1 <- lm(hwy ~ displ, mpg)
 summary(mpg) ###inspect information of dataset
 coefplot::coefplot(mod1)
 ```
@@ -374,6 +375,7 @@ mod2
 
 ```{r, solution_04d}
 ### your code here
+mod2 <- lm(hwy ~ displ + drv, data = mpg)
 coefplot::coefplot(mod2)
 ```
 
@@ -405,7 +407,7 @@ Throughout the semester we will frequently need to use subscripts and superscrip
 #### SOLUTION
 
 $$ 
-here
+\left( X_{1}^{Z^{Y}} \right)
 $$
 
 ### 5c)
@@ -417,7 +419,7 @@ Throughout the semester I will use $\log$ to represent the natural log. In LaTeX
 #### SOLUTION
 
 $$ 
-here
+\log\left(x^{2}\right)
 $$
 
 
@@ -431,5 +433,13 @@ Let's practice using multiple equation blocks. You should double check that your
 **Create an equation block below where you write the expression "natural log of x squared plus the natural log of y squared equals z squared". Then create a second equation block where you write the expression "natural log of w equals z".**  
 
 #### SOLUTION
+$$
+\begin{equation}
+\log\left(x^{2}\right) + \log\left(y^{2}\right) = z^{2}
+\end{equation}
 
+\begin{equation}
+\log(w) = z
+\end{equation}
+$$
 Add your equation blocks here.  
