@@ -166,10 +166,9 @@ Next, we will include the influence of the `cut` variable breaking up the graphi
 
 ```{r, solution_02c}
 ### your code here
-library(ggplot2)
-x = diamonds["color"]
-y = diamonds["price"]
-ggplot(diamonds, aes(x = color, y = price)) + geom_boxplot() + facet_wrap(~cut)
+ggplot(data = diamonds) +
+  geom_boxplot(aes(x=color,y=price)) +
+  facet_wrap(~cut)
 ```
 
 ### 2d)
@@ -182,10 +181,9 @@ In addition to the `facet_wrap()` function, we can create subplots with the `fac
 
 ```{r, solution_02d}
 ### your code here
-library(ggplot2)
-x = diamonds["color"]
-y = diamonds["price"]
-ggplot(diamonds, aes(x = cut, y = clarity)) + facet_grid(~cut)
+ggplot(data = diamonds) +
+  geom_boxplot(aes(x=color,y=price)) +
+  facet_grid(clarity~cut)
 ```
 
 ### 2e)
@@ -200,7 +198,10 @@ The resulting figure in Problem 2d) includes 3 out of the 4 C's. The remaining v
 
 ```{r, solution_02e}
 ### your code here
-
+ggplot(data = diamonds) +
+  geom_boxplot(aes(x=color, y=price, fill='carat > median(carat)')) +
+  facet_grid(clarity~cut) +
+  theme(legend.position = 'top')
 ```
 
 ### 2f)
@@ -213,6 +214,12 @@ Due to the large number of subplots, the individual facets are quite small with 
 
 ```{r, solution_02f}
 ### your code here
+library(ggplot2)
+diamonds %>% 
+  filter(cut == "Ideal" & clarity == "IF") %>% 
+  ggplot(diamonds, mapping = aes(x = color, y = price))  + geom_boxplot(aes( x = color, y = price, fill = 'carat > median(diamonds$carat)')) +
+  facet_grid(clarity~cut) +
+  theme(legend.position = 'top')
 ```
 
 ### 2g)
